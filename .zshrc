@@ -13,7 +13,7 @@ setopt PROMPT_SUBST
 # Disable virtualenv's default prompt modification
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
-PROMPT='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }%F{green}%*%f %F{blue}%1~%f %F{red}${vcs_info_msg_0_}%f$ '
+# PROMPT='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }%F{green}%*%f %F{blue}%1~%f %F{red}${vcs_info_msg_0_}%f$ '
 
 #ssh 1pass
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
@@ -80,3 +80,4 @@ source <(fzf --zsh)
 export PATH=/Users/constantine/Library/Python/3.9/bin:"$PATH"
 export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 
+eval "$(starship init zsh)"
