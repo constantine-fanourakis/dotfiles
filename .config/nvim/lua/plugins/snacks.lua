@@ -33,5 +33,6 @@ return {
   },
   keys = {
     { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
   },
 }
