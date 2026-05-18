@@ -32,7 +32,7 @@ return {
     },
   },
   keys = {
-    { "<leader><space>", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
+    { "<leader><space>", function() Snacks.picker.buffers({ filter = { bt = function(bt) return bt ~= "terminal" end } }) end, desc = "Buffers" },
+    { "<leader>z", function() Snacks.toggle.zoom():toggle() end, desc = "Toggle Zoom" },
   },
 }
