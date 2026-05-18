@@ -21,6 +21,7 @@ export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 # Aliases
 alias vim="nvim"
 alias ll="ls -l"
+alias cd="z"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # bindkey '\e[H' beginning-of-line
@@ -81,3 +82,4 @@ export PATH=/Users/constantine/Library/Python/3.9/bin:"$PATH"
 export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
