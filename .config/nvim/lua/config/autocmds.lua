@@ -14,6 +14,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "copilot" then
+      local ft = vim.bo[args.buf].filetype
+      if ft == "markdown" or ft == "text" then
+        vim.schedule(function() vim.lsp.buf_detach_client(args.buf, client.id) end)
+      end
+    end
+  end,
+})
+
 -- Increase yank highlight duration (default is 50ms)
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
