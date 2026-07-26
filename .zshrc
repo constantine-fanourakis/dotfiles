@@ -82,4 +82,5 @@ export PATH=/Users/constantine/Library/Python/3.9/bin:"$PATH"
 export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 
 eval "$(starship init zsh)"
+export _ZO_DOCTOR=0
 eval "$(zoxide init zsh)"
