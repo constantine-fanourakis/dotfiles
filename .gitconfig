@@ -1,0 +1,21 @@
+[user]
+	name = Constantine Fanourakis
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	ll = log --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(green)<%an>%Creset %C(auto)%d%Creset %s' --date=short
+	sweep = "!f() { \\\n    echo \"Checking for stale branches...\"; \\\n    git fetch --prune --verbose; \\\n    GONE=$(git branch -vv | grep \"gone\\]\" | awk \"{print \\$1}\"); \\\n    if [ -n \"$GONE\" ]; then \\\n        echo \"The following branches are marked [gone] and will be deleted:\"; \\\n        echo \"$GONE\"; \\\n        echo \"$GONE\" | xargs -r git branch -D; \\\n    else \\\n        echo \"No stale branches found. Your local repo is clean!\"; \\\n    fi; \\\n}; f"
+[rerere]
+	enabled = true
+
+# Machine-specific settings: identity, commit signing, and credential
+# helpers. Each machine provides its own untracked ~/.gitconfig.local;
+# git skips the include when the file does not exist.
+[include]
+	path = ~/.gitconfig.local
