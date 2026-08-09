@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 
-alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Vi mode
 set -o vi
