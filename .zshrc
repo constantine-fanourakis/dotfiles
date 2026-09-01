@@ -63,6 +63,13 @@ if [[ -n "$IS_MACOS" ]]; then
   else
     _zshrc_warn "~/.docker/completions not found, skipping docker completions"
   fi
+
+  # fnm node version manager
+  if command -v fnm >/dev/null; then
+    eval "$(fnm env --use-on-cd)"
+  else
+    _zshrc_warn "fnm not found, skipping node version manager init"
+  fi
 fi
 # ============================ end macOS-only =============================
 
