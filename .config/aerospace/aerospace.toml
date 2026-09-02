@@ -67,7 +67,7 @@ on-window-detected = [
     { if = 'test %{app-bundle-id} = com.spotify.client', run = 'move-node-to-workspace 1' },
     { if = 'test %{app-bundle-id} = notion.id', run = 'move-node-to-workspace 2' },
     # Google Calendar PWA
-    { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep', run = 'move-node-to-workspace 2' },
+    { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep', run = 'move-node-to-workspace 7' },
     { if = 'test %{app-bundle-id} = com.linear', run = 'move-node-to-workspace 3' },
     { if = 'test %{app-bundle-id} = com.mitchellh.ghostty', run = 'move-node-to-workspace 4' },
     { if = 'test %{app-bundle-id} = com.google.Chrome', run = 'move-node-to-workspace 5' },
