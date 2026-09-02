@@ -124,6 +124,12 @@ gaps.outer.right =      0
     # alt-enter = '''exec-and-forget osascript -e \
     # 'tell application "Terminal" to tell (do script) to activate' '''
 
+    # Swallow the macOS "hide application" shortcuts: hidden windows stay in
+    # the layout but disappear from screen, which is confusing in a tiling WM.
+    # See: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+    cmd-h = []
+    cmd-alt-h = []
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
