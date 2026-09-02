@@ -67,7 +67,8 @@ on-window-detected = [
     { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.google.Chrome', run = 'move-node-to-workspace B' },
     { if = 'test %{app-bundle-id} = com.spotify.client', run = 'move-node-to-workspace M' },
-    { if = 'test %{app-bundle-id} = com.linear || test %{app-bundle-id} = notion.id', run = 'move-node-to-workspace N' },
+    { if = 'test %{app-bundle-id} = com.linear', run = 'move-node-to-workspace 6' },
+    { if = 'test %{app-bundle-id} = notion.id', run = 'move-node-to-workspace N' },
     # Google Calendar PWA
     { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep', run = 'move-node-to-workspace N' },
     { if = 'test %{app-bundle-id} = com.tinyspeck.slackmacgap', run = 'move-node-to-workspace S' },
