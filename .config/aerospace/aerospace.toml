@@ -57,6 +57,17 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
 
+# Simulated sticky for the Google Meet picture-in-picture window: AeroSpace
+# has no always-visible windows (nikitabobko/AeroSpace#2), so pull the PiP to
+# the focused workspace on every switch. The PiP is indistinguishable from the
+# main Meet window in AeroSpace's data (same bundle id, empty titles); the
+# newest window is assumed to be the PiP, and nothing happens unless the Meet
+# PWA has at least two windows (main + PiP).
+exec-on-workspace-change = ['/bin/bash', '-c', '''
+ids=$(aerospace list-windows --monitor all --app-bundle-id com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan --format "%{window-id}" | sort -n)
+[ "$(wc -l <<< "$ids")" -ge 2 ] && aerospace move-node-to-workspace --window-id "$(tail -1 <<< "$ids")" "$AEROSPACE_FOCUSED_WORKSPACE"
+''']
+
 # Callbacks that run when a new window is detected. First matching rule wins.
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
 on-window-detected = [
