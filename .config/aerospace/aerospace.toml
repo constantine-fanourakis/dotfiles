@@ -63,6 +63,8 @@ on-mode-changed = []
 on-window-detected = [
     { if = 'test %{app-bundle-id} = com.apple.systempreferences', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.1password.1password', run = 'layout floating' },
+    # Google Meet PWA
+    { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.google.Chrome', run = 'move-node-to-workspace B' },
     { if = 'test %{app-bundle-id} = com.spotify.client', run = 'move-node-to-workspace M' },
     { if = 'test %{app-bundle-id} = com.linear || test %{app-bundle-id} = notion.id', run = 'move-node-to-workspace N' },
