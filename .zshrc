@@ -73,6 +73,9 @@ if [[ -n "$IS_MACOS" ]]; then
 fi
 # ============================ end macOS-only =============================
 
+# user-local binaries (uv, uvx, claude, qmk)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Aliases
 alias vim="nvim"
 alias ll="ls -l"
