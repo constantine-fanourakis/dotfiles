@@ -73,6 +73,8 @@ ids=$(aerospace list-windows --monitor all --app-bundle-id com.google.Chrome.app
 on-window-detected = [
     { if = 'test %{app-bundle-id} = com.apple.systempreferences', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.1password.1password', run = 'layout floating' },
+    { if = 'test %{app-bundle-id} = com.anthropic.claudefordesktop', run = 'layout floating' },
+    { if = 'test %{app-bundle-id} = com.apple.finder', run = 'layout floating' },
     # Google Meet PWA
     { if = 'test %{app-bundle-id} = com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan', run = 'layout floating' },
     { if = 'test %{app-bundle-id} = com.spotify.client', run = 'move-node-to-workspace 1' },
