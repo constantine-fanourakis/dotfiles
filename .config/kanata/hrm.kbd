@@ -1,0 +1,44 @@
+;; Home Row Mods for MacBook Internal Keyboard Only
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+  
+  ;; THIS IS THE KEY LINE - only intercept the internal keyboard
+  ;; Your QMK keyboard will be completely unaffected
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
+)
+
+;; Define the keys we want to remap
+(defsrc
+  caps
+  a    s    d    f    g    h    j    k    l    ;
+)
+
+;; Timing variables - adjust to taste
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+;; Home row mod aliases
+;; Left hand: Cmd-Alt-Ctrl-Shift (CAGS order, inside-out)
+;; Right hand: Shift-Ctrl-Alt-Cmd (mirrored)
+(defalias
+  met_a (tap-hold $tap-time $hold-time a lmet)   ;; A = Cmd when held
+  alt_s (tap-hold $tap-time $hold-time s lalt)   ;; S = Option when held
+  ctl_d (tap-hold $tap-time $hold-time d lctl)   ;; D = Ctrl when held
+  sft_f (tap-hold $tap-time $hold-time f lsft)   ;; F = Shift when held
+  
+  sft_j (tap-hold $tap-time $hold-time j rsft)   ;; J = Shift when held
+  ctl_k (tap-hold $tap-time $hold-time k rctl)   ;; K = Ctrl when held
+  alt_l (tap-hold $tap-time $hold-time l lalt)   ;; L = Option when held
+  met_; (tap-hold $tap-time $hold-time ; rmet)   ;; ; = Cmd when held
+)
+
+;; Apply the home row mods
+(deflayer base
+  esc
+  @met_a @alt_s @ctl_d @sft_f g h @sft_j @ctl_k @alt_l @met_;
+)
