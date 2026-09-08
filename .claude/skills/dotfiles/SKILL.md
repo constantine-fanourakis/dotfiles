@@ -16,14 +16,6 @@ Remote: `github.com:constantine-fanourakis/dotfiles.git`, branch `master`.
 Commits are SSH-signed via 1Password; no extra flags needed, but signing may
 trigger an approval prompt.
 
-This skill's canonical file is `~/.config/claude/skills/dotfiles/SKILL.md`,
-tracked in the dotfiles repo. `~/.claude/skills/dotfiles` is a symlink to
-that directory: `~/.claude` is a separate local-only git repo, and the
-dotfiles repo cannot track paths inside a nested repo. On a new machine,
-recreate the link:
-
-    ln -s $HOME/.config/claude/skills/dotfiles $HOME/.claude/skills/dotfiles
-
 ## Hard rules
 
 - The work tree is `$HOME`. Never run `add .`, `add -A`, `stash -u`, or
