@@ -1,0 +1,111 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "power-profiles-daemon",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "sort-by": "number"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 70,
+        "separate-outputs": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\uf06e",
+            "deactivated": "\uf070"
+        },
+        "tooltip-format-activated": "Idle inhibited - screen will stay on",
+        "tooltip-format-deactivated": "Idle normal - screen will blank/lock"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "\uf0e7",
+            "performance": "\uf0e4",
+            "balanced": "\uf24e",
+            "power-saver": "\uf06c"
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "\uf186",
+            "\uf042",
+            "\uf185"
+        ],
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "\uf026 muted",
+        "format-icons": {
+            "headphone": "\uf025",
+            "default": [
+                "\uf026",
+                "\uf027",
+                "\uf028"
+            ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "\uf1eb  {signalStrength}%",
+        "format-ethernet": "\uf0e8  wired",
+        "format-disconnected": "\uf127  offline",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "\uf0e7 {capacity}%",
+        "format-plugged": "\uf1e6 {capacity}%",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240"
+        ],
+        "tooltip-format": "{timeTo} ({power}W)"
+    },
+    "clock": {
+        "format": "\uf017 {:%H:%M}",
+        "format-alt": "\uf133 {:%a %d %b %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    }
+}

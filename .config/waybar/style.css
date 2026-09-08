@@ -1,0 +1,60 @@
+/* Catppuccin Mocha, official port: https://github.com/catppuccin/waybar
+   mocha.css defines @base, @text, @blue, ... via @define-color.
+   GTK CSS requires @import before any other rule. */
+@import "mocha.css";
+
+* {
+    font-family: "FiraCode Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(@base, 0.9);
+    color: @text;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: @overlay0;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+}
+#workspaces button.active {
+    color: @blue;
+    border-bottom: 2px solid @blue;
+}
+#workspaces button.urgent {
+    color: @red;
+    border-bottom: 2px solid @red;
+}
+#workspaces button:hover {
+    background: alpha(@surface0, 0.6);
+}
+
+#window { color: @subtext1; }
+
+#tray,
+#idle_inhibitor,
+#power-profiles-daemon,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#clock {
+    padding: 0 10px;
+    color: @text;
+}
+
+#clock                              { color: @blue; font-weight: bold; }
+#idle_inhibitor.activated           { color: @green; }
+#power-profiles-daemon.performance  { color: @peach; }
+#power-profiles-daemon.balanced     { color: @blue; }
+#power-profiles-daemon.power-saver  { color: @green; }
+#battery.warning                    { color: @yellow; }
+#battery.critical                   { color: @red; }
+#battery.charging                   { color: @green; }
+#network.disconnected               { color: @red; }
+#pulseaudio.muted                   { color: @overlay0; }
