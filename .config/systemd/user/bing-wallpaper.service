@@ -1,0 +1,10 @@
+[Unit]
+Description=Set the Bing image of the day as wallpaper
+Documentation=https://www.bing.com/HPImageArchive.aspx
+# Best-effort only: the script exits 0 when offline, so a failed boot-time
+# network does not mark the unit failed or block anything else.
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/hypr/scripts/bing-wallpaper.sh
