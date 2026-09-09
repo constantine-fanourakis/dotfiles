@@ -64,3 +64,10 @@ window#waybar {
 #bluetooth.off,
 #bluetooth.disabled,
 #bluetooth.no-controller { color: @overlay0; }
+
+#cpu,
+#memory { padding: 0 10px; color: @text; }
+#cpu.warning,
+#memory.warning  { color: @yellow; }
+#cpu.critical,
+#memory.critical { color: @red; }
