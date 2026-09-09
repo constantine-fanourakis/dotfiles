@@ -289,7 +289,9 @@ hl.bind(mainMod .. " + ESCAPE",    hl.dsp.exec_cmd("hyprlock"))
 
 -- Window management
 hl.bind(mainMod .. " + Q",         hl.dsp.window.close())
-hl.bind(mainMod .. " + V",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + B",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + V",         hl.dsp.exec_cmd(
+    "sh -c 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'"))
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + BACKSLASH", hl.dsp.layout("togglesplit"))
