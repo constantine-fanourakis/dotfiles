@@ -77,7 +77,8 @@
             ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
+        "on-click-middle": "flatpak run com.saivert.pwvucontrol"
     },
     "network": {
         "format-wifi": "\uf1eb  {signalStrength}%",
