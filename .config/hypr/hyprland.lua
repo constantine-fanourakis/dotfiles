@@ -20,6 +20,17 @@ hl.monitor({
     scale    = "auto",
 })
 
+-- The external panel is pinned rather than left on "preferred": the T490's
+-- HDMI 1.4b port caps 3840x2160 at 30 Hz, and scale 1.5 forces XWayland clients
+-- to render at 1440p and be upscaled. Driving 1440p natively at 60 Hz gives the
+-- same logical desktop size, pixel-exact XWayland, and double the refresh.
+hl.monitor({
+    output   = "HDMI-A-2",
+    mode     = "2560x1440@59.95",
+    position = "auto",
+    scale    = 1,
+})
+
 -- Explicit dual-monitor example (edit + uncomment if auto placement is wrong):
 -- hl.monitor({ output = "eDP-1",     mode = "preferred", position = "0x1080", scale = 1 })
 -- hl.monitor({ output = "HDMI-A-2",  mode = "preferred", position = "0x0",    scale = 1 })
