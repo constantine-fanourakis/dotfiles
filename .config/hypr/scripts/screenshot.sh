@@ -20,8 +20,8 @@ case "${1:-region}" in
         ;;
 esac
 
-# wl-copy forks a resident daemon to serve the clipboard; it inherits our stdio,
-# so redirect it or any caller capturing this script's output blocks on EOF.
+# wl-copy forks a resident daemon to serve the clipboard and inherits this
+# script's stdio. Redirect it, or callers capturing output block on EOF.
 wl-copy --type image/png < "$FILE" >/dev/null 2>&1
 
 notify-send "Screenshot saved" "$(basename "$FILE")" -i "$FILE" -t 3000 >/dev/null 2>&1 || true
