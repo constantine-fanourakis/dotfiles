@@ -58,3 +58,9 @@ window#waybar {
 #battery.charging                   { color: @green; }
 #network.disconnected               { color: @red; }
 #pulseaudio.muted                   { color: @overlay0; }
+
+#bluetooth            { padding: 0 10px; color: @text; }
+#bluetooth.connected  { color: @blue; }
+#bluetooth.off,
+#bluetooth.disabled,
+#bluetooth.no-controller { color: @overlay0; }

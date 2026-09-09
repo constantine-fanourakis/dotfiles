@@ -14,6 +14,7 @@
         "tray",
         "idle_inhibitor",
         "power-profiles-daemon",
+        "bluetooth",
         "backlight",
         "pulseaudio",
         "network",
@@ -107,5 +108,17 @@
         "format": "\uf017 {:%H:%M}",
         "format-alt": "\uf133 {:%a %d %b %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "bluetooth": {
+        "format": "\uf294",
+        "format-connected": "\uf293 {num_connections}",
+        "format-off": "\uf05e",
+        "format-disabled": "\uf05e",
+        "format-no-controller": "\uf05e",
+        "tooltip-format": "Bluetooth: {status}\nController: {controller_alias}",
+        "tooltip-format-connected": "Bluetooth: {status}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager",
+        "on-click-right": "blueman-adapters"
     }
 }
