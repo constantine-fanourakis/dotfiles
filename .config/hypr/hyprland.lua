@@ -104,9 +104,9 @@ end)
 -- burn through their whole restart budget in about a second -- landing in
 -- start-limit-hit BEFORE the next session exists, so nothing autostarts.
 hl.on("hyprland.shutdown", function()
-    -- Stop graphical-session.target, NOT hyprland-session.target: the services
-    -- are PartOf the former, and they themselves keep it alive as reverse
-    -- dependencies, so stopping our own target never cascades to them.
+    -- Stops graphical-session.target, not hyprland-session.target: the services
+    -- are PartOf the former and keep it alive as reverse dependencies, so
+    -- stopping hyprland-session.target does not cascade to them.
     hl.exec_cmd("systemctl --user stop graphical-session.target")
 end)
 
@@ -114,6 +114,12 @@ end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
+-- Set explicitly so XWayland apps (Steam, games) match Wayland-native ones.
+-- Without it XWayland falls back to XCursor's legacy bitmaps: there is no
+-- /usr/share/icons/default/index.theme on this system to catch it.
+-- hl.env persists across `hyprctl reload`: deleting a line does not unset the
+-- variable for newly spawned processes; only a compositor restart clears it.
+hl.env("XCURSOR_THEME",   "breeze_cursors")
 hl.env("XCURSOR_SIZE",    "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -136,13 +142,16 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT",        "auto")
 -----------------------
 hl.config({
     general = {
-        gaps_in  = 4,
-        gaps_out = 8,
+        gaps_in  = 2,
+        gaps_out = 4,
 
         border_size = 2,
 
         col = {
-            active_border   = { colors = { colors.mauve, colors.blue }, angle = 45 },
+            -- Deliberately muted: flat greys from the Catppuccin palette rather
+            -- than a saturated gradient. overlay0 reads as focused without
+            -- drawing the eye; surface0 sits just above the background.
+            active_border   = colors.overlay0,
             inactive_border = colors.surface0,
         },
 
@@ -379,9 +388,8 @@ hl.window_rule({
 ---- LID SWITCH ---
 ------------------
 -- Runtime transitions. Helpers + the parse-time check live in MONITORS above.
--- NOTE: `hyprctl keyword` does NOT work with the Lua parser (it replies
--- "keyword can't work with non-legacy parsers. Use eval."), so these call
--- hl.monitor() natively rather than shelling out.
+-- These call hl.monitor() directly. `hyprctl keyword` is rejected by the Lua
+-- parser: "keyword can't work with non-legacy parsers. Use eval."
 -- Switch name from `hyprctl devices` as the wiki specifies -> "Lid Switch".
 -- Syntax per https://wiki.hypr.land/configuring/core/binds/switches/
 -- 'locked = true' so they still fire while the screen is locked.
