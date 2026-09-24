@@ -285,6 +285,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + T",         hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SPACE",     hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E",         hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + W",         hl.dsp.exec_cmd("/home/kalidasa/.config/hypr/scripts/window-switcher.sh"))
 hl.bind(mainMod .. " + ESCAPE",    hl.dsp.exec_cmd("hyprlock"))
 
 -- Window management
