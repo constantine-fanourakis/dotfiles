@@ -71,3 +71,6 @@ window#waybar {
 #memory.warning  { color: @yellow; }
 #cpu.critical,
 #memory.critical { color: @red; }
+
+#custom-sunset     { padding: 0 10px; color: @text; }
+#custom-sunset.on  { color: @peach; }

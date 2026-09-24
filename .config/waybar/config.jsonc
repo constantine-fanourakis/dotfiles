@@ -17,6 +17,7 @@
         "idle_inhibitor",
         "power-profiles-daemon",
         "bluetooth",
+        "custom/sunset",
         "backlight",
         "pulseaudio",
         "network",
@@ -143,5 +144,12 @@
             "warning": 80,
             "critical": 90
         }
+    },
+    "custom/sunset": {
+        "exec": "/home/kalidasa/.config/hypr/scripts/hyprsunset.sh status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "on-click": "/home/kalidasa/.config/hypr/scripts/hyprsunset.sh toggle"
     }
 }
