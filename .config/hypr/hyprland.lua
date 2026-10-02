@@ -154,7 +154,7 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT",        "auto")
 hl.config({
     general = {
         gaps_in  = 2,
-        gaps_out = 4,
+        gaps_out = 0,
 
         border_size = 2,
 
@@ -172,7 +172,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 0,
         rounding_power = 2,
 
         active_opacity   = 1.0,
