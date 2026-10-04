@@ -392,14 +392,6 @@ hl.window_rule({
 
 -- Float common dialogs
 hl.window_rule({
-    -- Steam client windows (library, friends, settings, game pages). Games
-    -- launched from Steam carry their own class and are unaffected.
-    name  = "float-steam",
-    match = { class = "^steam$" },
-    float = true,
-})
-
-hl.window_rule({
     name  = "float-dialogs",
     match = { class = "^(pavucontrol|nm-connection-editor|blueman-manager|org.kde.polkit-kde-authentication-agent-1)$" },
     float = true,
