@@ -405,6 +405,14 @@ hl.window_rule({
     float = true,
 })
 
+-- Pin Brave to workspace 5. The class is "brave-browser" (StartupWMClass),
+-- not the com.brave.Browser of its second desktop file.
+hl.window_rule({
+    name  = "brave-to-workspace-5",
+    match = { class = "^brave-browser$" },
+    workspace = 5,
+})
+
 
 ------------------
 ---- LID SWITCH ---
