@@ -8,9 +8,6 @@ vim.g.snacks_indent = true
 
 vim.g.autoformat = false
 
--- Copilot as inline ghost text rather than a blink.cmp source
-vim.g.ai_cmp = false
-
 vim.o.autoread = true
 
 -- Set to "basedpyright" to use basedpyright instead of pyright.
