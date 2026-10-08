@@ -26,6 +26,9 @@ if [[ -n "$IS_MACOS" ]]; then
   # 1Password SSH agent
   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+  # XDG config dir, so XDG-aware tools such as lazygit read ~/.config as on Linux
+  export XDG_CONFIG_HOME="$HOME/.config"
+
   # user-local python
   export PATH="$HOME/Library/Python/3.9/bin:$PATH"
   if command -v brew >/dev/null; then
