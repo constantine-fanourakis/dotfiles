@@ -221,6 +221,15 @@ hl.config({
         -- that session lock instead of leaving you stuck.
         allow_session_lock_restore = true,
     },
+
+    render = {
+        -- Let a solitary fullscreen window drive the display directly instead
+        -- of going through a compositing pass. Saves a full-framebuffer copy
+        -- per frame, which matters on the UHD 620's shared memory bandwidth.
+        -- Hyprland runs a per-frame test and falls back to compositing when
+        -- the buffer format or geometry does not qualify.
+        direct_scanout = 1,
+    },
 })
 
 -- Animation curves
