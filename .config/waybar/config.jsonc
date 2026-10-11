@@ -4,7 +4,7 @@
     "height": 34,
     "spacing": 4,
     "modules-left": [
-        "hyprland/workspaces",
+        "ext/workspaces",
         "hyprland/submap"
     ],
     "modules-center": [
@@ -24,9 +24,12 @@
         "battery",
         "clock"
     ],
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "sort-by": "number"
+    "ext/workspaces": {
+        // {name} is Hyprland's workspace number; {id} is the ext-workspace
+        // protocol's own sequential handle and does not match it.
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-name": true
     },
     "hyprland/window": {
         "format": "{title}",
