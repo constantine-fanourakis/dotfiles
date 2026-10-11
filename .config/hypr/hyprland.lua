@@ -101,10 +101,12 @@ hl.on("hyprland.start", function()
     -- before the env import lands would silently skip every one of them.
     --
     -- The target pulls in the units openSUSE ships (hyprpaper, hypridle,
-    -- hyprpolkitagent, waybar) via WantedBy=graphical-session.target. dunst is
-    -- Type=dbus and activates on the first notification, so it needs no entry.
-    -- systemd then provides Restart=on-failure, ordering and clean shutdown,
-    -- which exec_cmd cannot. Manage them with: systemctl --user status waybar
+    -- hyprpolkitagent, waybar, dunst) via WantedBy=graphical-session.target.
+    -- dunst is Type=dbus, but its D-Bus activation is not relied on: the Plasma
+    -- packages ship a competing service file for org.freedesktop.Notifications
+    -- whose plasma_waitforname blocks forever without plasmashell.
+    -- systemd then provides restart, ordering and clean shutdown, which
+    -- exec_cmd cannot. Manage them with: systemctl --user status waybar
     hl.exec_cmd("sh -c 'dbus-update-activation-environment --systemd "
              .. "WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE XDG_SESSION_TYPE "
              .. "&& systemctl --user start hyprland-session.target'")
