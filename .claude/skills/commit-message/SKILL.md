@@ -14,6 +14,21 @@ We use [Conventional Commits](https://www.conventionalcommits.org/). Format:
 
 **Subject:** imperative mood, lowercase, no trailing period, ≤72 chars.
 
+## Body
+
+- **State what changed and the constraint that forced it.** Two to five lines.
+  Skip the body when the subject is complete on its own.
+- **Do not restate the diff.** No file lists, no "added X, updated Y" when the
+  subject already says it.
+- **Do not justify the choice to a reviewer.** Record the constraint, not the
+  argument for it.
+- **No process narrative.** Nothing about reviews, iterations, what was tried,
+  or what a previous commit got wrong.
+- **Name the knobs.** Env vars, flags and defaults that the change introduces
+  belong in the body, spelled as they appear in the code.
+
+Wording rules for the message text are in CLAUDE.md under Language.
+
 ## Steps
 
 1. Run `git status` and `git diff --staged` (fall back to `git diff` if nothing is staged).
