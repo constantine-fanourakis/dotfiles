@@ -24,6 +24,35 @@
 - Uses Neovim as primary editor
 - Tailor explanations to this level — no need to explain fundamentals
 
+## Language
+
+Applies to comments, docs and commit messages. Responses follow Communication
+above.
+
+Write plainly. State what something does and the constraint behind it.
+Nothing else.
+
+- **No figurative or dramatic language.** Describe the mechanism, not an
+  image of it. Write "a vehicle that loses the link cannot publish, so the
+  broker reports it", not "a vehicle cannot report its own silence".
+- **Avoid these and their kin:** churn, plumbing, hide, damaged, bursting,
+  load-bearing, "worth arguing about", "where it stops", "looks healthy",
+  "helps nobody", "the sharpest stakes".
+- **No editorializing about the work or the process.** Drop clauses like "so
+  review stays about content", "so delivery can still be audited", "this is
+  important because".
+- **Do not invent domain facts.** Only claim what the spec, the code, or a
+  measurement supports. If a justification requires a fact you were not
+  given, say the real reason instead or say nothing.
+- **Keep terms of art, drop jargon.** at-least-once, QoS 1, PUBACK, backoff
+  with jitter are precise and stay. Made-up shorthand and metaphors go.
+- **Use the same words as the code.** If the log says `message dropped`, the
+  prose says dropped. Match env var names, log text, and field names exactly.
+- **Spell things out properly:** expiration not expiry; Last Will and
+  Testament (LWT) on first use.
+- **Short sentences.** One idea each. If a sentence needs a semicolon to hold
+  two justifications, it is two sentences or one too many.
+
 ## Code Comments
 
 Comments must read as if the code was always this way: describe **what the code
