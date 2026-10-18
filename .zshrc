@@ -79,6 +79,12 @@ fi
 # user-local binaries (uv, uvx, claude, qmk)
 export PATH="$HOME/.local/bin:$PATH"
 
+# opencode installs into its own prefix, per machine. Absence is expected on a
+# machine without it, so this skips silently instead of warning.
+if [[ -d "$HOME/.opencode/bin" ]]; then
+  export PATH="$HOME/.opencode/bin:$PATH"
+fi
+
 # Aliases
 alias vim="nvim"
 alias ll="ls -l"
