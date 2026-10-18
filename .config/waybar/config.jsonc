@@ -91,7 +91,9 @@
         "format-ethernet": "\uf0e8  wired",
         "format-disconnected": "\uf127  offline",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}"
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+        // Dotted class so Hyprland can float it; see float-dialogs in hyprland.lua.
+        "on-click": "ghostty --class=com.mitchellh.ghostty.nmtui -e nmtui"
     },
     "battery": {
         "bat": "BAT0",

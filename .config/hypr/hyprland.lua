@@ -401,10 +401,12 @@ hl.window_rule({
     no_focus = true,
 })
 
--- Float common dialogs
+-- Float common dialogs. The ghostty entry is the nmtui popup from waybar's
+-- network module. Its class must be dotted: GTK discards an application ID
+-- without a period, leaving the window as plain com.mitchellh.ghostty.
 hl.window_rule({
     name  = "float-dialogs",
-    match = { class = "^(pavucontrol|nm-connection-editor|blueman-manager|org.kde.polkit-kde-authentication-agent-1)$" },
+    match = { class = "^(pavucontrol|nm-connection-editor|blueman-manager|com.mitchellh.ghostty.nmtui|org.kde.polkit-kde-authentication-agent-1)$" },
     float = true,
 })
 
