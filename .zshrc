@@ -97,9 +97,6 @@ if [[ -f "$HOME/.gitconfig.global" ]] && ! git config --get alias.sweep >/dev/nu
   _zshrc_warn "~/.gitconfig does not include ~/.gitconfig.global — shared git config (aliases, excludesfile, lfs, rerere) is inactive. Add:\n[include]\n\tpath = ~/.gitconfig.global"
 fi
 
-# bindkey '\e[H' beginning-of-line
-# bindkey '\e[F' end-of-line
-
 # fix title
 DISABLE_AUTO_TITLE="true"
 function stitle() { echo -en "\e]2;$@\a" }
@@ -137,6 +134,14 @@ if [[ -f "$ZVM_DIR/zsh-vi-mode.plugin.zsh" ]]; then
 else
   _zshrc_warn "zsh-vi-mode plugin not found at $ZVM_DIR, skipping"
 fi
+
+# Home/End. /etc/zshrc binds these into the emacs keymap, which zsh-vi-mode
+# replaces with viins, so they never take effect. tmux (screen-256color) sends
+# \e[1~ and \e[4~; the \e[H and \e[F that ghostty sends outside tmux are
+# already bound by zsh-vi-mode. Must stay after the block above, which
+# rebuilds the viins keymap.
+bindkey -M viins '^[[1~' beginning-of-line
+bindkey -M viins '^[[4~' end-of-line
 
 # Set up fzf key bindings and fuzzy completion
 if command -v fzf >/dev/null; then
