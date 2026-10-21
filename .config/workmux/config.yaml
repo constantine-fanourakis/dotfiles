@@ -1,0 +1,14 @@
+nerdfont: true
+
+worktree_dir: ~/Documents/worktrees/{project}
+base_branch: auto
+merge_strategy: rebase
+
+agent: claude
+agents:
+  gemini: gemini
+  copilot: copilot
+
+files:
+  symlink:
+    - .claude/settings.local.json
