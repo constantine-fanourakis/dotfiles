@@ -1,0 +1,11 @@
+# Loaded only on macOS, after the shared config, via the config-file include in
+# ~/Library/Application Support/com.mitchellh.ghostty/config.
+font-size = 13
+
+macos-titlebar-style = hidden
+window-decoration = false
+
+window-inherit-working-directory = false
+working-directory = home
+
+mouse-hide-while-typing = true
