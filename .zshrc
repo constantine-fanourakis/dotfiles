@@ -88,6 +88,7 @@ fi
 # Aliases
 alias vim="nvim"
 alias ll="ls -l"
+alias lg="lazygit"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Catch ~/.gitconfig silently losing its include of the shared dotfiles
