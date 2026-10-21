@@ -12,3 +12,9 @@ agents:
 files:
   symlink:
     - .claude/settings.local.json
+
+panes:
+  - command: <agent>
+    focus: true
+  - command: nvim
+    split: vertical
