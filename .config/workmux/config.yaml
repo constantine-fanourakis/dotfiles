@@ -1,5 +1,27 @@
 nerdfont: true
 
+# Dashboard palette matched to the Catppuccin Mocha terminal theme.
+# Comments name the Catppuccin color each field maps to.
+theme:
+  scheme: default
+  mode: dark
+  custom:
+    text: "#cdd6f4"                # text
+    dimmed: "#6c7086"              # overlay0
+    current_row_bg: "#313244"      # surface0
+    highlight_row_bg: "#45475a"    # surface1
+    current_worktree_fg: "#b4befe" # lavender
+    border: "#585b70"              # surface2
+    help_border: "#585b70"         # surface2
+    help_muted: "#7f849c"          # overlay1
+    header: "#cba6f7"              # mauve
+    keycap: "#fab387"              # peach
+    info: "#94e2d5"                # teal
+    success: "#a6e3a1"             # green
+    warning: "#f9e2af"             # yellow
+    danger: "#f38ba8"              # red
+    accent: "#89b4fa"              # blue
+
 worktree_dir: ~/Documents/worktrees/{project}
 base_branch: auto
 merge_strategy: rebase
