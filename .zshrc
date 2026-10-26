@@ -99,8 +99,11 @@ if [[ -f "$HOME/.gitconfig.global" ]] && ! git config --get alias.sweep >/dev/nu
   _zshrc_warn "~/.gitconfig does not include ~/.gitconfig.global — shared git config (aliases, excludesfile, lfs, rerere) is inactive. Add:\n[include]\n\tpath = ~/.gitconfig.global"
 fi
 
-# fix title
-DISABLE_AUTO_TITLE="true"
+# Terminal title: the cwd at each prompt via OSC 2. tmux forwards it as #T.
+# Programs that set their own title (nvim, claude) override it while running.
+autoload -Uz add-zsh-hook
+_title_cwd() { print -Pn '\e]2;%~\a' }
+add-zsh-hook precmd _title_cwd
 function stitle() { echo -en "\e]2;$@\a" }
 
 if command -v nvim >/dev/null; then
