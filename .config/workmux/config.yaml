@@ -28,8 +28,7 @@ merge_strategy: rebase
 
 agent: claude
 agents:
-  gemini: gemini
-  copilot: copilot
+  opencode: opencode
 
 files:
   symlink:
