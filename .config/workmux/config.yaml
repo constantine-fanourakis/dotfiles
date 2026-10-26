@@ -22,7 +22,7 @@ theme:
     danger: "#f38ba8"              # red
     accent: "#89b4fa"              # blue
 
-worktree_dir: ~/Documents/worktrees/{project}
+worktree_dir: ~/Projects/worktrees/{project}
 base_branch: auto
 merge_strategy: rebase
 
