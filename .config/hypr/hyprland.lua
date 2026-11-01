@@ -279,6 +279,14 @@ hl.config({
     },
 })
 
+-- Reduces pointer travel per unit of physical movement. Scoped to this device
+-- so the touchpad and TrackPoint keep the global sensitivity of 0. The name is
+-- the device string reported by `hyprctl devices`.
+hl.device({
+    name        = "compx-2.4g-receiver-mouse",
+    sensitivity = -0.5,
+})
+
 -- 3-finger horizontal swipe changes workspace
 hl.gesture({
     fingers   = 3,
